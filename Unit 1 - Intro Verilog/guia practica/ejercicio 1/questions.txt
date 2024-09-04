@@ -1,0 +1,7 @@
+Si i_sel, i_data1 e i_data2 son iguales a 1, siempre tendremos el valor b0010 (2) a la salida del multiplexor.
+Con lo cual el acumulador ira sumando de a 2 en cada ciclo de reloj.
+Para producir overflow se debe alcanzar el valor b1000000 (64) a la salida del acumulador.
+N_ciclos = 64 / 2
+N_ciclos = 32
+
+Para lograr overflow es necesario esperar 32 ciclos de reloj.
