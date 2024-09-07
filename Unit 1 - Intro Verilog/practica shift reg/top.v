@@ -19,6 +19,10 @@ module top
 
     count
     u_count
+    #(
+        .NB_COUNTER(NB_COUNTER),
+        .NB_SW     (NB_SW-1   )
+    )
     (
         .o_valid(connect_counter_to_shift),
         .i_sw   (i_sw[2:0]),

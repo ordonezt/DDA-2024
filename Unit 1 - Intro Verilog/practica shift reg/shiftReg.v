@@ -3,18 +3,18 @@ module shift
     parameter NB_LEDS = 4
 )
 (
-    output [NB_lLEDS -1 :0] o_led  ,
-    input        i_valid,
-    input        i_reset,
-    input        clock  ,
+    output [NB_LEDS -1 :0] o_led  ,
+    input                  i_valid,
+    input                  i_reset,
+    input                  clock  ,
 );
 
-    reg [NB_lLEDS -1 :0] r_shift_reg;
+    reg [NB_LEDS -1 :0] r_shift_reg;
 
     always @(posedge clock ) begin
         
         if (i_reset) begin
-            r_shift_reg <= {NB_LEDS-1{1'b0}, 1'b1};
+            r_shift_reg <= {(NB_LEDS-1){1'b0}, 1'b1};
         end
 
         else if (i_valid) begin
