@@ -1,26 +1,29 @@
-module 
+module acumulator
 (
-    output reg [5:0] o_data    ,
-    output reg       o_overflow,
+    output [6-1 : 0] o_data    ,
+    output           o_overflow,
     
-    input      [3:0] i_data    ,
+    input  [4-1 : 0] i_data    ,
     
     input            i_rst     ,
     input            clk
 );
 
-    wire sum[6:0];
+    reg [7-1 : 0] sum;
 
-    assign sum = i_data + o_data;
+    always@(posedge clk or posedge i_rst) begin
+        
+        if (i_rst) begin
+            sum <= 7'h00;
+        end
 
-    always@(posedge clk or posedge i_rst) 
-    begin
-        if (i_rst)
-            o_data     <= 0;
-            o_overflow <= 0;
-        else
-            o_data     <= sum;
-            o_overflow <= sum[6];
+        else begin
+            sum <= {2'b00, i_data} + sum[5:0];
+        end
+        
     end
+    
+    assign o_data     = sum[5:0];
+    assign o_overflow = sum[6];
 
 endmodule
