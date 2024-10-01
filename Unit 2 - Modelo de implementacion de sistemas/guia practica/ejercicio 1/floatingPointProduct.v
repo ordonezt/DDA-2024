@@ -8,10 +8,7 @@ module floatingPointProduct
     output [NB_SIGN + NB_EXPO + NB_MANT - 1 : 0] o_data ,
     
     input  [NB_SIGN + NB_EXPO + NB_MANT - 1 : 0] i_dataA,
-    input  [NB_SIGN + NB_EXPO + NB_MANT - 1 : 0] i_dataB,
-    
-    input                                        i_rst  ,
-    input                                        clk
+    input  [NB_SIGN + NB_EXPO + NB_MANT - 1 : 0] i_dataB
 );
 
     localparam NB   = NB_SIGN + NB_EXPO + NB_MANT;
